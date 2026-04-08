@@ -140,5 +140,10 @@ public class StackHelper extends Builder<StackHelper> implements StackHelperApi 
         public StackTraceElement toStackTraceElement() {
             return element;
         }
+
+        @Override
+        public String toString() {
+            return element.toString();
+        }
     }
 }

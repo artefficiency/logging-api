@@ -3,33 +3,25 @@ package tech.artefficiency.logging.data.entries.message;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.slf4j.helpers.MessageFormatter;
-import tech.artefficiency.logging.api.LayerApi;
 import tech.artefficiency.logging.api.Level;
-import tech.artefficiency.logging.api.MessageApi;
 import tech.artefficiency.logging.api.StackMode;
 import tech.artefficiency.logging.data.exception.ExceptionInfo;
 import tech.artefficiency.logging.data.stubs.TestEntriesContext;
 import tech.artefficiency.logging.data.stubs.TestEntry;
-import tech.artefficiency.logging.exceptions.ArgumentNullException;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.catchThrowable;
-import static tech.artefficiency.logging.data.entries.message.BaseMessageTest.Data.MESSAGE;
-import static tech.artefficiency.logging.data.entries.message.BaseMessageTest.Data.PARAMETERS;
-import static tech.artefficiency.logging.data.entries.message.BaseMessageTest.Data.PARAMETERS_MESSAGE;
-import static tech.artefficiency.logging.data.entries.message.BaseMessageTest.Data.PATTERN;
 import static tech.artefficiency.logging.data.entries.message.ExceptionMessageTest.Data.*;
 
 public class ExceptionMessageTest {
 
     interface Data {
         Level            LEVEL              = Level.TRACE;
-        String           NAME               = "name";
+        RuntimeException CAUSE              = new RuntimeException("Cause");
         String           PATTERN            = "pattern {} {}";
         Object[]         PARAMETERS         = new Object[]{7, "8"};
         String           PARAMETERS_MESSAGE = MessageFormatter.basicArrayFormat("{},{}", PARAMETERS);
         String           MESSAGE            = MessageFormatter.basicArrayFormat(PATTERN, PARAMETERS);
-        RuntimeException CAUSE              = new RuntimeException("Cause");
         RuntimeException EXCEPTION          = new RuntimeException("Exception", CAUSE);
     }
 
@@ -37,10 +29,6 @@ public class ExceptionMessageTest {
     TestEntry          parent;
     ExceptionMessage   target;
     Throwable          thrown;
-
-    MessageApi.ExceptionFormatter exceptionMessage;
-    MessageApi.DefaultAdder       stackMessage;
-    LayerApi.Starter              layer;
 
     @BeforeEach
     void initializeTest() {
