@@ -22,7 +22,8 @@ public final class Field {
 
         this.name  = Optional.ofNullable(name)
                 .orElseThrow(() -> new ArgumentNullException("name"));
-        this.value = value;
+        this.value = Optional.ofNullable(value)
+                .orElseThrow(() -> new ArgumentNullException("value"));
 
         setFormatter(formatter);
     }
