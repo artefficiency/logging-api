@@ -1,8 +1,16 @@
 package tech.artefficiency.logging.data.handle;
 
 import com.google.common.base.Objects;
+import tech.artefficiency.logging.exceptions.ArgumentNullException;
+
+import java.util.Optional;
 
 public record StackFrameHandle(StackWalker.StackFrame element) implements Handle {
+
+    public StackFrameHandle {
+        Optional.ofNullable(element)
+                .orElseThrow(() -> new ArgumentNullException("element"));
+    }
 
     @Override
     public String className() {

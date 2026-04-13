@@ -13,11 +13,6 @@ public class EntryFields implements Iterable<Field> {
 
     private final List<Field> fields = Lists.newArrayList();
 
-    public <T> void add(String name, T value, Function<T, String> formatter) {
-        add(name, (Supplier<T>) () -> value, formatter);
-    }
-
-
     public <T> void add(String name, Supplier<T> value, Function<T, String> formatter) {
         add(new Field(name, cast(value), cast(formatter)));
     }
