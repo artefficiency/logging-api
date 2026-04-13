@@ -4,9 +4,7 @@ import org.junit.jupiter.api.Test;
 import tech.artefficiency.logging.api.StackMode;
 import tech.artefficiency.logging.tools.stack.StackHelper;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
-
+import static org.assertj.core.api.Assertions.assertThat;
 import static tech.artefficiency.logging.data.exception.ExceptionInfoBuilderTest.Data.*;
 
 public class ExceptionInfoBuilderTest {
@@ -18,8 +16,8 @@ public class ExceptionInfoBuilderTest {
         Throwable EXCEPTION         = new IllegalArgumentException(EXCEPTION_MESSAGE, CAUSE);
     }
 
-    private ExceptionInfo expected;
-    private ExceptionInfo result;
+    ExceptionInfo expected;
+    ExceptionInfo result;
 
     @Test
     public void build_nullException_returnsNull() {
@@ -33,7 +31,7 @@ public class ExceptionInfoBuilderTest {
         }
         then:
         {
-            assertNull(result);
+            assertThat(result).isNull();
         }
     }
 
@@ -48,7 +46,7 @@ public class ExceptionInfoBuilderTest {
         }
         then:
         {
-            assertNull(result);
+            assertThat(result).isNull();
         }
     }
 
@@ -63,7 +61,7 @@ public class ExceptionInfoBuilderTest {
         }
         then:
         {
-            assertNull(result);
+            assertThat(result).isNull();
         }
     }
 
@@ -78,7 +76,7 @@ public class ExceptionInfoBuilderTest {
         }
         then:
         {
-            assertNull(result);
+            assertThat(result).isNull();
         }
     }
 
@@ -91,7 +89,7 @@ public class ExceptionInfoBuilderTest {
         }
         then:
         {
-            assertNull(result);
+            assertThat(result).isNull();
         }
     }
 
@@ -99,11 +97,7 @@ public class ExceptionInfoBuilderTest {
     public void build_validException_returnsInfoWithoutAnything() {
         given:
         {
-            expected = new ExceptionInfo(
-                    null,
-                    null,
-                    null,
-                    null);
+            expected = new ExceptionInfo(null, null, null, null);
         }
         when:
         {
@@ -115,7 +109,7 @@ public class ExceptionInfoBuilderTest {
         }
         then:
         {
-            assertEquals(expected, result);
+            assertThat(result).isEqualTo(expected);
         }
     }
 
@@ -123,11 +117,7 @@ public class ExceptionInfoBuilderTest {
     public void build_validExceptionIncludeClass_returnsInfoWithClass() {
         given:
         {
-            expected = new ExceptionInfo(
-                    CAUSE.getClass(),
-                    null,
-                    null,
-                    null);
+            expected = new ExceptionInfo(CAUSE.getClass(), null, null, null);
         }
         when:
         {
@@ -138,7 +128,7 @@ public class ExceptionInfoBuilderTest {
         }
         then:
         {
-            assertEquals(expected, result);
+            assertThat(result).isEqualTo(expected);
         }
     }
 
@@ -146,11 +136,7 @@ public class ExceptionInfoBuilderTest {
     public void build_validExceptionIncludeMessage_returnsInfoWithMessage() {
         given:
         {
-            expected = new ExceptionInfo(
-                    null,
-                    CAUSE_MESSAGE,
-                    null,
-                    null);
+            expected = new ExceptionInfo(null, CAUSE_MESSAGE, null, null);
         }
         when:
         {
@@ -161,7 +147,7 @@ public class ExceptionInfoBuilderTest {
         }
         then:
         {
-            assertEquals(expected, result);
+            assertThat(result).isEqualTo(expected);
         }
     }
 
@@ -169,11 +155,7 @@ public class ExceptionInfoBuilderTest {
     public void build_validExceptionNullStackMode_returnsInfoWithoutStack() {
         given:
         {
-            expected = new ExceptionInfo(
-                    null,
-                    null,
-                    null,
-                    null);
+            expected = new ExceptionInfo(null, null, null, null);
         }
         when:
         {
@@ -185,7 +167,7 @@ public class ExceptionInfoBuilderTest {
         }
         then:
         {
-            assertEquals(expected, result);
+            assertThat(result).isEqualTo(expected);
         }
     }
 
@@ -208,7 +190,7 @@ public class ExceptionInfoBuilderTest {
         }
         then:
         {
-            assertEquals(expected, result);
+            assertThat(result).isEqualTo(expected);
         }
     }
 
@@ -229,7 +211,7 @@ public class ExceptionInfoBuilderTest {
         }
         then:
         {
-            assertEquals(expected, result);
+            assertThat(result).isEqualTo(expected);
         }
     }
 
@@ -241,12 +223,7 @@ public class ExceptionInfoBuilderTest {
                     null,
                     null,
                     null,
-                    new ExceptionInfo(
-                            null,
-                            null,
-                            null,
-                            null
-                    ));
+                    new ExceptionInfo(null, null, null, null));
         }
         when:
         {
@@ -258,7 +235,7 @@ public class ExceptionInfoBuilderTest {
         }
         then:
         {
-            assertEquals(expected, result);
+            assertThat(result).isEqualTo(expected);
         }
     }
 
@@ -270,12 +247,7 @@ public class ExceptionInfoBuilderTest {
                     EXCEPTION.getClass(),
                     null,
                     null,
-                    new ExceptionInfo(
-                            CAUSE.getClass(),
-                            null,
-                            null,
-                            null
-                    ));
+                    new ExceptionInfo(CAUSE.getClass(), null, null, null));
         }
         when:
         {
@@ -286,7 +258,7 @@ public class ExceptionInfoBuilderTest {
         }
         then:
         {
-            assertEquals(expected, result);
+            assertThat(result).isEqualTo(expected);
         }
     }
 
@@ -298,12 +270,7 @@ public class ExceptionInfoBuilderTest {
                     null,
                     EXCEPTION_MESSAGE,
                     null,
-                    new ExceptionInfo(
-                            null,
-                            CAUSE_MESSAGE,
-                            null,
-                            null
-                    ));
+                    new ExceptionInfo(null, CAUSE_MESSAGE, null, null));
         }
         when:
         {
@@ -314,7 +281,7 @@ public class ExceptionInfoBuilderTest {
         }
         then:
         {
-            assertEquals(expected, result);
+            assertThat(result).isEqualTo(expected);
         }
     }
 
@@ -326,12 +293,7 @@ public class ExceptionInfoBuilderTest {
                     null,
                     null,
                     StackHelper.toInfo(EXCEPTION.getStackTrace()).mode(StackMode.FAIR),
-                    new ExceptionInfo(
-                            null,
-                            null,
-                            StackHelper.toInfo(CAUSE.getStackTrace()).mode(StackMode.FAIR),
-                            null
-                    ));
+                    new ExceptionInfo(null, null, StackHelper.toInfo(CAUSE.getStackTrace()).mode(StackMode.FAIR), null));
         }
         when:
         {
@@ -342,7 +304,7 @@ public class ExceptionInfoBuilderTest {
         }
         then:
         {
-            assertEquals(expected, result);
+            assertThat(result).isEqualTo(expected);
         }
     }
 
@@ -354,12 +316,7 @@ public class ExceptionInfoBuilderTest {
                     EXCEPTION.getClass(),
                     EXCEPTION_MESSAGE,
                     StackHelper.toInfo(EXCEPTION.getStackTrace()).mode(StackMode.FAIR),
-                    new ExceptionInfo(
-                            CAUSE.getClass(),
-                            CAUSE_MESSAGE,
-                            StackHelper.toInfo(CAUSE.getStackTrace()).mode(StackMode.FAIR),
-                            null
-                    ));
+                    new ExceptionInfo(CAUSE.getClass(), CAUSE_MESSAGE, StackHelper.toInfo(CAUSE.getStackTrace()).mode(StackMode.FAIR), null));
         }
         when:
         {
@@ -368,7 +325,7 @@ public class ExceptionInfoBuilderTest {
         }
         then:
         {
-            assertEquals(expected, result);
+            assertThat(result).isEqualTo(expected);
         }
     }
 }
