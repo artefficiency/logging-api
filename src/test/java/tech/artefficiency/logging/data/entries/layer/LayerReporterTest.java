@@ -46,7 +46,7 @@ public class LayerReporterTest {
         String    REPORTER_MESSAGE        = MessageFormatter.basicArrayFormat(REPORTER_PATTERN, REPORTER_PARAMETERS);
         String    JUST_MESSAGE            = "Just message";
         Object[]  JUST_PARAMETERS         = new Object[]{true, false};
-        String    JUST_PARAMETERS_MESSAGE = "true,false";
+        String    JUST_PARAMETERS_MESSAGE = "true, false";
     }
 
     TestEntriesContext             context;

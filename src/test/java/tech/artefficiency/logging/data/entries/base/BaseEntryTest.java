@@ -42,7 +42,7 @@ public class BaseEntryTest {
         String      MESSAGE                 = "1 + 2 = 3";
         String      JUST_MESSAGE            = "Just message";
         Object[]    JUST_PARAMETERS         = {5, 6};
-        String      JUST_PARAMETERS_MESSAGE = "5,6";
+        String      JUST_PARAMETERS_MESSAGE = "5, 6";
     }
 
     EntryValidator<TestEntry> validator;

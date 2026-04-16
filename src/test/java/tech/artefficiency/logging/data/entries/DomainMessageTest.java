@@ -36,7 +36,7 @@ public class DomainMessageTest {
         Level            LEVEL              = Level.TRACE;
         String           PATTERN            = "pattern {} {}";
         Object[]         PARAMETERS         = new Object[]{7, "8"};
-        String           PARAMETERS_MESSAGE = MessageFormatter.basicArrayFormat("{},{}", PARAMETERS);
+        String           PARAMETERS_MESSAGE = "7, 8";
         String           MESSAGE            = MessageFormatter.basicArrayFormat(PATTERN, PARAMETERS);
         int              FIELD_A_VALUE      = 4325;
         Field            FIELD_A            = new Field("A", () -> FIELD_A_VALUE, null);

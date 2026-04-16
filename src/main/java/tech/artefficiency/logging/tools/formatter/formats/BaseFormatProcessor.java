@@ -6,7 +6,7 @@ import org.apache.commons.lang3.StringUtils;
 public abstract class BaseFormatProcessor {
 
     interface Token {
-        String PARAMETER_SEPARATOR = ",";
+        String PARAMETER_SEPARATOR = ", ";
     }
 
     public String process(String pattern, Object[] parameters) {

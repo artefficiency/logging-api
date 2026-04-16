@@ -22,7 +22,7 @@ public class StackMessageTest {
         Level                    LEVEL              = Level.TRACE;
         String                   PATTERN            = "pattern {} {}";
         Object[]                 PARAMETERS         = new Object[]{7, "8"};
-        String                   PARAMETERS_MESSAGE = MessageFormatter.basicArrayFormat("{},{}", PARAMETERS);
+        String                   PARAMETERS_MESSAGE = "7, 8";
         String                   MESSAGE            = MessageFormatter.basicArrayFormat(PATTERN, PARAMETERS);
         StackWalker.StackFrame[] STACK              = stackOfSize(StackHelper.Default.LIMIT + 2);
     }
