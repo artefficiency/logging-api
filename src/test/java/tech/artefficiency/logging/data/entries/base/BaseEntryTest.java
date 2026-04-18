@@ -5,19 +5,16 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import tech.artefficiency.logging.api.Level;
-import tech.artefficiency.logging.data.fields.Field;
-import tech.artefficiency.logging.data.stubs.FieldData;
-import tech.artefficiency.logging.data.stubs.TestEntriesContext;
-import tech.artefficiency.logging.data.stubs.TestEntry;
+import tech.artefficiency.logging.stubs.FieldData;
+import tech.artefficiency.logging.stubs.TestEntriesContext;
+import tech.artefficiency.logging.stubs.TestEntry;
 import tech.artefficiency.logging.data.tools.EntryValidator;
 import tech.artefficiency.logging.exceptions.ArgumentNullException;
-import tech.artefficiency.logging.tools.Cast;
 
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
-import java.util.function.Predicate;
 
 import static org.assertj.core.api.Assertions.*;
 import static tech.artefficiency.logging.data.entries.base.BaseEntryTest.Data.*;

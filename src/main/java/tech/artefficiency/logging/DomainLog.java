@@ -4,6 +4,9 @@ import tech.artefficiency.logging.api.Level;
 import tech.artefficiency.logging.api.Log;
 import tech.artefficiency.logging.api.Message;
 import tech.artefficiency.logging.data.entries.DomainMessage;
+import tech.artefficiency.logging.implementation.logger.EntryLogger;
+
+import java.util.function.Function;
 
 public class DomainLog<L extends Message> extends AbstractLog<L> {
 
@@ -11,8 +14,8 @@ public class DomainLog<L extends Message> extends AbstractLog<L> {
         addKnownToStackHelper(DomainLog.class, LoggerClassSetter.class);
     }
 
-    protected DomainLog(String logger, Class<L> messageCLass) {
-        super(logger, messageCLass);
+    protected DomainLog(String logger, Class<L> messageCLass, Function<String, EntryLogger> loggerFactory) {
+        super(logger, messageCLass, loggerFactory);
     }
 
     @Override
@@ -21,7 +24,7 @@ public class DomainLog<L extends Message> extends AbstractLog<L> {
     }
 
     public static <L extends Message> LoggerClassSetter<L> within(Class<L> domainClass) {
-        return loggerClass -> new DomainLog<>(loggerClass, domainClass);
+        return loggerClass -> new DomainLog<>(loggerClass, domainClass, null);
     }
 
     public interface LoggerClassSetter<L extends Message> {

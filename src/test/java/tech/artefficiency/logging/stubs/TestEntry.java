@@ -1,4 +1,4 @@
-package tech.artefficiency.logging.data.stubs;
+package tech.artefficiency.logging.stubs;
 
 import tech.artefficiency.logging.api.Level;
 import tech.artefficiency.logging.data.entries.EntriesContext;

@@ -3,7 +3,7 @@ package tech.artefficiency.logging.data.entries.base;
 import org.assertj.core.util.Lists;
 import tech.artefficiency.logging.api.Level;
 import tech.artefficiency.logging.data.entries.EntriesContext;
-import tech.artefficiency.logging.data.stubs.FieldData;
+import tech.artefficiency.logging.stubs.FieldData;
 import tech.artefficiency.logging.tools.Builder;
 
 import java.time.Duration;

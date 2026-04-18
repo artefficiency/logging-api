@@ -1,6 +1,6 @@
 package tech.artefficiency.logging.data.tools;
 
-import tech.artefficiency.logging.data.stubs.TestStackFrame;
+import tech.artefficiency.logging.stubs.TestStackFrame;
 import tech.artefficiency.logging.tools.stack.StackHelper;
 
 import java.util.stream.IntStream;

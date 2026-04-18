@@ -5,9 +5,9 @@ import org.junit.jupiter.api.Test;
 import org.slf4j.helpers.MessageFormatter;
 import tech.artefficiency.logging.api.Level;
 import tech.artefficiency.logging.api.StackMode;
-import tech.artefficiency.logging.data.stubs.TestEntriesContext;
-import tech.artefficiency.logging.data.stubs.TestEntry;
-import tech.artefficiency.logging.data.stubs.TestStackHelper;
+import tech.artefficiency.logging.stubs.TestEntriesContext;
+import tech.artefficiency.logging.stubs.TestEntry;
+import tech.artefficiency.logging.stubs.TestStackHelper;
 import tech.artefficiency.logging.tools.stack.StackHelper;
 
 import static org.assertj.core.api.Assertions.assertThat;

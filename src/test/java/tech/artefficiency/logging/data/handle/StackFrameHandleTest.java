@@ -1,7 +1,7 @@
 package tech.artefficiency.logging.data.handle;
 
 import org.junit.jupiter.api.Test;
-import tech.artefficiency.logging.data.stubs.TestStackFrame;
+import tech.artefficiency.logging.stubs.TestStackFrame;
 import tech.artefficiency.logging.exceptions.ArgumentNullException;
 
 import static org.assertj.core.api.Assertions.assertThat;

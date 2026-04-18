@@ -1,4 +1,4 @@
-package tech.artefficiency.logging.data.stubs;
+package tech.artefficiency.logging.stubs;
 
 import org.assertj.core.util.Lists;
 import tech.artefficiency.logging.configuration.Configuration;

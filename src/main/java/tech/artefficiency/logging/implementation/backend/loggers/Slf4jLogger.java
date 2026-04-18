@@ -6,13 +6,19 @@ import tech.artefficiency.logging.api.Level;
 import tech.artefficiency.logging.implementation.backend.BackendLogger;
 import tech.artefficiency.logging.implementation.compilers.CompiledEntry;
 
+import java.util.function.Function;
 
-public class slf4jLogger implements BackendLogger {
+
+public class Slf4jLogger implements BackendLogger {
 
     private final Logger logger;
 
-    public slf4jLogger(String name) {
-        this.logger = LoggerFactory.getLogger(name);
+    public Slf4jLogger(String name) {
+        this(name, LoggerFactory::getLogger);
+    }
+
+    Slf4jLogger(String name, Function<String, Logger> factory) {
+        this.logger = factory.apply(name);
     }
 
     @Override

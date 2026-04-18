@@ -1,4 +1,4 @@
-package tech.artefficiency.logging.data.stubs;
+package tech.artefficiency.logging.stubs;
 
 import com.google.common.base.Objects;
 import org.apache.commons.lang3.NotImplementedException;

@@ -12,7 +12,7 @@ import tech.artefficiency.logging.data.entries.message.ExceptionMessage;
 import tech.artefficiency.logging.data.entries.message.StackMessage;
 import tech.artefficiency.logging.data.exception.ExceptionInfo;
 import tech.artefficiency.logging.data.fields.Field;
-import tech.artefficiency.logging.data.stubs.TestEntriesContext;
+import tech.artefficiency.logging.stubs.TestEntriesContext;
 import tech.artefficiency.logging.exceptions.ArgumentNullException;
 
 import java.util.function.Supplier;

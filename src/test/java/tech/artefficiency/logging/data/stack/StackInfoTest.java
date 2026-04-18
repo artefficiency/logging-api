@@ -2,7 +2,7 @@ package tech.artefficiency.logging.data.stack;
 
 import org.junit.jupiter.api.Test;
 import tech.artefficiency.logging.api.StackMode;
-import tech.artefficiency.logging.data.stubs.TestStackFrame;
+import tech.artefficiency.logging.stubs.TestStackFrame;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static tech.artefficiency.logging.data.stack.StackInfoTest.Data.*;

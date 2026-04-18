@@ -8,9 +8,9 @@ import tech.artefficiency.logging.api.Level;
 import tech.artefficiency.logging.data.entries.FieldsMessage;
 import tech.artefficiency.logging.data.entries.base.BaseEntry;
 import tech.artefficiency.logging.data.entries.base.EntryBuilder;
-import tech.artefficiency.logging.data.stubs.FieldData;
-import tech.artefficiency.logging.data.stubs.TestEntriesContext;
-import tech.artefficiency.logging.data.stubs.TestEntry;
+import tech.artefficiency.logging.stubs.FieldData;
+import tech.artefficiency.logging.stubs.TestEntriesContext;
+import tech.artefficiency.logging.stubs.TestEntry;
 import tech.artefficiency.logging.data.tools.EntryValidator;
 
 import java.time.Duration;

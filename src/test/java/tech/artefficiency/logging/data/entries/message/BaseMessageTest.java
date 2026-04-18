@@ -9,8 +9,8 @@ import tech.artefficiency.logging.api.MessageApi;
 import tech.artefficiency.logging.api.StackMode;
 import tech.artefficiency.logging.data.entries.base.BaseEntry;
 import tech.artefficiency.logging.data.entries.layer.Layer;
-import tech.artefficiency.logging.data.stubs.TestEntriesContext;
-import tech.artefficiency.logging.data.stubs.TestEntry;
+import tech.artefficiency.logging.stubs.TestEntriesContext;
+import tech.artefficiency.logging.stubs.TestEntry;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static tech.artefficiency.logging.data.entries.message.BaseMessageTest.Data.*;

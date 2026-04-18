@@ -4,6 +4,7 @@ import tech.artefficiency.logging.api.Level;
 import tech.artefficiency.logging.implementation.backend.BackendLogger;
 import tech.artefficiency.logging.implementation.compilers.CompiledEntry;
 
+import java.util.function.Function;
 import java.util.logging.Logger;
 
 public class StandardLogger implements BackendLogger {
@@ -11,7 +12,11 @@ public class StandardLogger implements BackendLogger {
     private final Logger logger;
 
     public StandardLogger(String name) {
-        this.logger = Logger.getLogger(name);
+        this(name, Logger::getLogger);
+    }
+
+    StandardLogger(String name, Function<String, Logger> factory) {
+        this.logger = factory.apply(name);
     }
 
     @Override
@@ -26,10 +31,10 @@ public class StandardLogger implements BackendLogger {
 
     @Override
     public void write(CompiledEntry layer) {
-        logger.log(map(layer.level()),layer.data());
+        logger.log(map(layer.level()), layer.data());
     }
 
-    private java.util.logging.Level map(Level level){
+    private java.util.logging.Level map(Level level) {
         return switch (level) {
             case ERROR -> java.util.logging.Level.SEVERE;
             case WARN -> java.util.logging.Level.WARNING;
@@ -37,6 +42,5 @@ public class StandardLogger implements BackendLogger {
             case DEBUG -> java.util.logging.Level.FINE;
             case TRACE -> java.util.logging.Level.FINER;
         };
-
     }
 }

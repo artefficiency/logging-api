@@ -4,6 +4,9 @@ import tech.artefficiency.logging.api.FieldsApi;
 import tech.artefficiency.logging.api.Level;
 import tech.artefficiency.logging.api.Log;
 import tech.artefficiency.logging.data.entries.FieldsMessage;
+import tech.artefficiency.logging.implementation.logger.EntryLogger;
+
+import java.util.function.Function;
 
 public class FieldsLog extends AbstractLog<FieldsApi> {
 
@@ -11,8 +14,8 @@ public class FieldsLog extends AbstractLog<FieldsApi> {
         addKnownToStackHelper(FieldsLog.class);
     }
 
-    protected FieldsLog(String logger) {
-        super(logger, FieldsApi.class);
+    protected FieldsLog(String logger, Function<String, EntryLogger> loggerFactory) {
+        super(logger, FieldsApi.class, loggerFactory);
     }
 
     public static Log<FieldsApi> forCurrentClass() {
@@ -24,7 +27,7 @@ public class FieldsLog extends AbstractLog<FieldsApi> {
     }
 
     public static Log<FieldsApi> forClass(String loggerClass) {
-        return new FieldsLog(loggerClass);
+        return new FieldsLog(loggerClass, null);
     }
 
     @Override

@@ -6,8 +6,8 @@ import org.slf4j.helpers.MessageFormatter;
 import tech.artefficiency.logging.api.Level;
 import tech.artefficiency.logging.api.StackMode;
 import tech.artefficiency.logging.data.exception.ExceptionInfo;
-import tech.artefficiency.logging.data.stubs.TestEntriesContext;
-import tech.artefficiency.logging.data.stubs.TestEntry;
+import tech.artefficiency.logging.stubs.TestEntriesContext;
+import tech.artefficiency.logging.stubs.TestEntry;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.catchThrowable;
